@@ -4,7 +4,7 @@ import SectionEyebrow from "../ui/SectionEyebrow.astro";
 import Tag from "../ui/Tag.astro";
 import Badge from "../ui/Badge.astro";
 import Icon from "../ui/Icon.astro";
-import { projects } from "../../data/projects";
+import { projects, projectStatusMeta } from "../../data/projects";
 
 interface Props {
   t: Dictionary;
@@ -37,8 +37,8 @@ const { t } = Astro.props;
                 {project.title}
               </h3>
               <Badge
-                variant={project.status === "live" ? "success" : "warning"}
-                label={project.status === "live" ? t.status_live : t.status_dev}
+                variant={projectStatusMeta[project.status].variant}
+                label={t[projectStatusMeta[project.status].labelKey]}
               />
             </div>
             <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4">

@@ -216,6 +216,10 @@
   color: var(--mint-5);
   background: var(--mint-soft-bg);
 }
+.badge--info {
+  color: var(--accent);
+  background: var(--accent-soft-bg);
+}
 .badge--warning {
   color: var(--amber-5);
   background: var(--amber-soft-bg);

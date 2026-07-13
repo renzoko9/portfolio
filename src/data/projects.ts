@@ -1,6 +1,6 @@
 import type { Dictionary } from '../i18n/utils';
 
-export type ProjectStatus = 'live' | 'dev';
+export type ProjectStatus = 'live' | 'deploying' | 'dev';
 
 export interface ProjectEntry {
   id: string;
@@ -12,6 +12,15 @@ export interface ProjectEntry {
   descKey: keyof Dictionary;
   tags: string[];
 }
+
+export const projectStatusMeta: Record<
+  ProjectStatus,
+  { variant: 'success' | 'info' | 'warning'; labelKey: keyof Dictionary }
+> = {
+  live: { variant: 'success', labelKey: 'status_live' },
+  deploying: { variant: 'info', labelKey: 'status_deploying' },
+  dev: { variant: 'warning', labelKey: 'status_dev' },
+};
 
 export const projects: ProjectEntry[] = [
   {
@@ -40,7 +49,7 @@ export const projects: ProjectEntry[] = [
     title: 'INOUT',
     href: '#',
     external: false,
-    status: 'live',
+    status: 'deploying',
     descKey: 'proj2_desc',
     tags: ['React Native', 'Expo', 'NestJS', 'PostgreSQL', 'OpenAI'],
   },

@@ -20,6 +20,7 @@ export interface Dictionary {
   proj_eyebrow: string;
   proj_title: string;
   status_live: string;
+  status_deploying: string;
   status_dev: string;
   proj1_desc: string;
   proj2_desc: string;
@@ -82,6 +83,7 @@ export const es: Dictionary = {
   proj_eyebrow: '// proyectos seleccionados',
   proj_title: 'Proyectos',
   status_live: 'en producción',
+  status_deploying: 'en despliegue',
   status_dev: 'en desarrollo',
   proj1_desc: 'Ecommerce para la Universidad Nacional Mayor de San Marcos, con arquitectura de microservicios.',
   proj2_desc: 'App móvil fintech con IA integrada: un chat asistido por OpenAI dentro de la experiencia.',

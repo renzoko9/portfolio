@@ -28,6 +28,7 @@ export const en: Dictionary = {
   proj_eyebrow: '// selected work',
   proj_title: 'Selected work',
   status_live: 'live',
+  status_deploying: 'deploying',
   status_dev: 'in progress',
   proj1_desc: 'Ecommerce platform for Universidad Nacional Mayor de San Marcos, built on a microservices architecture.',
   proj2_desc: 'Mobile fintech app with integrated AI: an OpenAI-assisted chat built into the experience.',
