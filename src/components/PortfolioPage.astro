@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './layout/Nav.astro';
+import Footer from './layout/Footer.astro';
+import Hero from './sections/Hero.astro';
+import About from './sections/About.astro';
+import Experience from './sections/Experience.astro';
+import Projects from './sections/Projects.astro';
+import Skills from './sections/Skills.astro';
+import Writing from './sections/Writing.astro';
+import Contact from './sections/Contact.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/languages';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const title = 'Renzo Chipana — Frontend Developer';
+---
+
+<BaseLayout lang={lang} title={title} description={t.hero_desc}>
+  <Nav lang={lang} t={t} />
+  <Hero t={t} />
+  <About t={t} />
+  <Experience t={t} />
+  <Projects t={t} />
+  <Skills t={t} />
+  <Writing t={t} />
+  <Contact t={t} />
+  <Footer t={t} />
+</BaseLayout>

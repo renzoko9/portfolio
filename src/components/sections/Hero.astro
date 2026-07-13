@@ -1,0 +1,18 @@
+---
+import type { Dictionary } from '../../i18n/utils';
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="hero">
+  <SectionEyebrow text={t.hero_eyebrow} class="mb-5" />
+  <h1 class="hero-title">
+    Renzo Chipana<span class="accent-square" aria-hidden="true"></span>
+  </h1>
+  <p class="font-sans text-md text-secondary leading-relaxed max-w-xl mt-6">{t.hero_desc}</p>
+</section>

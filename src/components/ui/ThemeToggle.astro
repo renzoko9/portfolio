@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<button type="button" class="theme-toggle" id="theme-toggle" aria-label={label}>
+  <span class="theme-toggle-thumb">
+    <Icon name="sun" class="icon-sun" />
+    <Icon name="moon" class="icon-moon" />
+  </span>
+</button>
+
+<style>
+  .icon-sun {
+    display: none;
+  }
+  .icon-moon {
+    display: block;
+  }
+  [data-theme='light'] .icon-sun {
+    display: block;
+  }
+  [data-theme='light'] .icon-moon {
+    display: none;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'portfolio-theme';
+  const toggle = document.getElementById('theme-toggle');
+
+  toggle?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    localStorage.setItem(STORAGE_KEY, next);
+  });
+</script>

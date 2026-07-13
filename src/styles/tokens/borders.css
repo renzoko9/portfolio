@@ -1,0 +1,10 @@
+:root,
+[data-theme='dark'] {
+  --border-hairline: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.22);
+}
+
+[data-theme='light'] {
+  --border-hairline: rgba(0, 0, 0, 0.09);
+  --border-strong: rgba(0, 0, 0, 0.22);
+}

@@ -1,0 +1,15 @@
+---
+import { otherLang, type Lang } from '../../i18n/languages';
+
+interface Props {
+  lang: Lang;
+  label: string;
+}
+
+const { lang, label } = Astro.props;
+const target = otherLang(lang);
+const href = target === 'es' ? '/' : '/en/';
+const hash = Astro.url.hash;
+---
+
+<a href={`${href}${hash}`} class="lang-btn" aria-label={label}>{target.toUpperCase()}</a>

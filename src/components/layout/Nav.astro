@@ -1,0 +1,37 @@
+---
+import type { Lang } from '../../i18n/languages';
+import type { Dictionary } from '../../i18n/utils';
+import ThemeToggle from '../ui/ThemeToggle.astro';
+import LangToggle from '../ui/LangToggle.astro';
+
+interface Props {
+  lang: Lang;
+  t: Dictionary;
+}
+
+const { lang, t } = Astro.props;
+
+const links: Array<{ href: string; key: keyof Dictionary }> = [
+  { href: '#about', key: 'nav_about' },
+  { href: '#experience', key: 'nav_exp' },
+  { href: '#projects', key: 'nav_projects' },
+  { href: '#contact', key: 'nav_contact' },
+];
+---
+
+<header class="nav-header">
+  <nav class="nav">
+    <a href="#top" class="nav-logo">RC<span class="text-accent">.</span></a>
+
+    <div class="nav-links">
+      {links.map((link) => (
+        <a href={link.href} class="link-muted">{t[link.key]}</a>
+      ))}
+    </div>
+
+    <div class="nav-controls">
+      <LangToggle lang={lang} label={t.toggle_lang_label} />
+      <ThemeToggle label={t.toggle_theme_label} />
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,20 @@
+---
+import type { Dictionary } from '../../i18n/utils';
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="writing" class="section py-20">
+  <SectionEyebrow text={t.writing_eyebrow} class="mb-3" />
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-6">{t.writing_title}</h2>
+
+  <div class="meta-row items-center">
+    <span class="font-mono text-12 uppercase tracking-wide text-tertiary">{t.writing_soon}</span>
+    <p class="font-sans text-md text-secondary leading-relaxed max-w-lg">{t.writing_desc}</p>
+  </div>
+</section>

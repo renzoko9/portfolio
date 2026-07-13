@@ -1,0 +1,48 @@
+---
+import type { Dictionary } from '../../i18n/utils';
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import Tag from '../ui/Tag.astro';
+import Badge from '../ui/Badge.astro';
+import Icon from '../ui/Icon.astro';
+import { projects } from '../../data/projects';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="projects" class="section py-20">
+  <SectionEyebrow text={t.proj_eyebrow} />
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8">{t.proj_title}</h2>
+
+  <div class="flex flex-col">
+    {projects.map((project) => (
+      <a
+        href={project.href}
+        class="project-row"
+        target={project.external ? '_blank' : undefined}
+        rel={project.external ? 'noopener' : undefined}
+      >
+        <span class="font-mono text-13 text-tertiary">{project.index}</span>
+        <div>
+          <div class="flex items-center gap-3 flex-wrap">
+            <h3 class="font-sans fw-bold text-2xl text-primary">{project.title}</h3>
+            <Badge
+              variant={project.status === 'live' ? 'success' : 'warning'}
+              label={project.status === 'live' ? t.status_live : t.status_dev}
+            />
+          </div>
+          <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4">{t[project.descKey]}</p>
+          <div class="flex gap-2 flex-wrap">
+            {project.tags.map((tag) => <Tag label={tag} />)}
+          </div>
+        </div>
+        <span class="icon-arrow">
+          <Icon name="arrow-up-right" size={20} />
+        </span>
+      </a>
+    ))}
+  </div>
+</section>
