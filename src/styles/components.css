@@ -19,6 +19,14 @@
   border-top: 1px solid var(--border-hairline);
 }
 
+/* like .section, but leaves horizontal inset to its children instead of
+   applying it to the whole section — used when a section wants content
+   to bleed flush to the frame lines (e.g. project row hover backgrounds) */
+.section-frame {
+  scroll-margin-top: 88px;
+  border-top: 1px solid var(--border-hairline);
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -232,7 +240,7 @@
   width: 9px;
   height: 9px;
   border-radius: var(--radius-full);
-  margin-top: 4px;
+  margin-top: 2px;
   flex-shrink: 0;
 }
 .dot--active {
@@ -288,7 +296,12 @@
   grid-template-columns: 32px 1fr;
   gap: var(--space-4);
   align-items: start;
-  padding: var(--space-8) 0;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  /* below the container-max breakpoint the frame lines sit at the
+     viewport edge and --edge is the full inset; above it, the lines are
+     already inset by margin:auto, so only the space-10 remainder is left */
+  padding: var(--space-8) min(var(--edge), var(--space-10));
   border-top: 1px solid var(--border-hairline);
   text-decoration: none;
   color: inherit;
@@ -302,6 +315,15 @@
     grid-template-columns: 52px 1fr auto;
     gap: var(--space-6);
   }
+}
+
+/* trailing empty row: closes out the list rhythm and gives breathing
+   room before the next section, instead of section-level bottom padding.
+   full-bleed (no max-width) so its border-top reads like the other
+   section-boundary dividers instead of a frame-bound row */
+.project-row-spacer {
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--border-hairline);
 }
 
 .icon-arrow {

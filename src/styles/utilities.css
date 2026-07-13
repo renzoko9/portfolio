@@ -122,7 +122,9 @@
 .py-20 { padding-top: var(--space-20); padding-bottom: var(--space-20); }
 .px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
 .px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-edge { padding-left: var(--edge); padding-right: var(--edge); }
 .pt-6 { padding-top: var(--space-6); }
+.pt-20 { padding-top: var(--space-20); }
 .pb-16 { padding-bottom: var(--space-16); }
 
 /* ============ position ============ */
