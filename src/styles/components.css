@@ -170,6 +170,18 @@
   width: 14px;
   height: 14px;
 }
+.theme-toggle-thumb .icon-sun {
+  display: none;
+}
+.theme-toggle-thumb .icon-moon {
+  display: block;
+}
+[data-theme='light'] .theme-toggle-thumb .icon-sun {
+  display: block;
+}
+[data-theme='light'] .theme-toggle-thumb .icon-moon {
+  display: none;
+}
 
 /* ============ tags & badges ============ */
 .tag {
