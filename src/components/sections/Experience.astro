@@ -1,7 +1,7 @@
 ---
-import type { Dictionary } from '../../i18n/utils';
-import SectionEyebrow from '../ui/SectionEyebrow.astro';
-import { experience } from '../../data/experience';
+import type { Dictionary } from "../../i18n/utils";
+import SectionEyebrow from "../ui/SectionEyebrow.astro";
+import { experience } from "../../data/experience";
 
 interface Props {
   t: Dictionary;
@@ -12,23 +12,39 @@ const { t } = Astro.props;
 
 <section id="experience" class="section py-20">
   <SectionEyebrow text={t.exp_eyebrow} />
-  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8">{t.exp_title}</h2>
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8">
+    {t.exp_title}
+  </h2>
 
   <div class="flex flex-col">
-    {experience.map((entry) => (
-      <div class="timeline-row">
-        <div class="flex items-start gap-3">
-          <span class:list={['dot', entry.active ? 'dot--active' : 'dot--past']}></span>
-          <div class="font-mono text-12 uppercase tracking-wide text-secondary leading-snug">{t[entry.periodKey]}</div>
-        </div>
-        <div>
-          <div class="flex items-baseline gap-3 flex-wrap">
-            <span class="font-sans fw-bold text-xl text-primary">{t[entry.roleKey]}</span>
-            {entry.company && <span class="font-mono text-13 text-accent">{entry.company}</span>}
+    {
+      experience.map((entry) => (
+        <div class="timeline-row">
+          <div class="flex items-start gap-3">
+            <span
+              class:list={["dot", entry.active ? "dot--active" : "dot--past"]}
+            />
+            <div class="font-mono text-12 uppercase tracking-wide text-secondary leading-snug">
+              {t[entry.periodKey]}
+            </div>
           </div>
-          <p class="font-sans text-base text-secondary leading-relaxed max-w-md mt-2">{t[entry.descKey]}</p>
+          <div>
+            <div class="flex items-baseline gap-3 flex-wrap">
+              <span class="font-sans fw-bold text-xl text-primary">
+                {t[entry.roleKey]}
+              </span>
+              {entry.company && (
+                <span class="font-mono text-13 text-accent">
+                  {entry.company}
+                </span>
+              )}
+            </div>
+            <p class="font-sans text-base text-secondary leading-relaxed max-w-md mt-2">
+              {t[entry.descKey]}
+            </p>
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </section>
