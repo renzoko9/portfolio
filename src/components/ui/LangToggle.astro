@@ -1,5 +1,6 @@
 ---
 import { otherLang, type Lang } from '../../i18n/languages';
+import FlagIcon from './FlagIcon.astro';
 
 interface Props {
   lang: Lang;
@@ -12,4 +13,7 @@ const href = target === 'es' ? '/' : '/en/';
 const hash = Astro.url.hash;
 ---
 
-<a href={`${href}${hash}`} class="lang-btn" aria-label={label}>{target.toUpperCase()}</a>
+<a href={`${href}${hash}`} class="lang-btn" aria-label={label}>
+  <FlagIcon lang={target} class="flag-icon" />
+  <span>{target.toUpperCase()}</span>
+</a>
