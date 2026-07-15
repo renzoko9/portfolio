@@ -20,7 +20,7 @@ const { t } = Astro.props;
     {
       experience.map((entry) => (
         <div class="timeline-row">
-          <div class="flex items-start gap-3">
+          <div class="flex items-start gap-3 mt-2">
             <span
               class:list={["dot", entry.active ? "dot--active" : "dot--past"]}
             />
