@@ -12,9 +12,8 @@ export const en: Dictionary = {
 
   about_eyebrow: '// about',
   about_title: 'I design and build, end to end.',
-  about_p1: 'I develop websites for clients with a focus on UX/UI — making every screen clear, fast, and pleasant to use.',
-  about_p2:
-    'I like building all kinds of things that impact society in some way — from a university ecommerce platform to tools for small businesses. I am a systems engineer from UNMSM.',
+  about_p1:
+    'I am a software developer with 3+ years of experience building products, from ecommerce to business tools. For clients, I build websites with a focus on UX/UI: clear, fast, and pleasant screens, and I use AI to boost my productivity.',
 
   exp_eyebrow: '// experience',
   exp_title: 'Experience',

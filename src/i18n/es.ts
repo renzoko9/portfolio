@@ -8,7 +8,6 @@ export interface Dictionary {
   about_eyebrow: string;
   about_title: string;
   about_p1: string;
-  about_p2: string;
   exp_eyebrow: string;
   exp_title: string;
   exp1_period: string;
@@ -66,9 +65,7 @@ export const es: Dictionary = {
   about_eyebrow: '// sobre mí',
   about_title: 'Diseño y construyo, de principio a fin.',
   about_p1:
-    'Desarrollo sitios web para clientes y me enfoco en la UX/UI: que cada pantalla sea clara, rápida y agradable de usar.',
-  about_p2:
-    'Me gusta construir todo tipo de cosas que impacten de alguna manera a la sociedad, desde un ecommerce universitario hasta herramientas para pequeños negocios. Soy ingeniero de sistemas por la UNMSM.',
+    'Soy desarrollador de software con más de 3 años de experiencia construyendo productos, desde ecommerce hasta herramientas para negocios. Para clientes, desarrollo sitios web con foco en UX/UI: pantallas claras, rápidas y agradables de usar, e integro IA para potenciar mi productividad.',
 
   exp_eyebrow: '// experiencia',
   exp_title: 'Experiencia',
