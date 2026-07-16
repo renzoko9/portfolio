@@ -201,9 +201,11 @@
 }
 .theme-toggle-thumb .icon-sun {
   display: none;
+  color: var(--amber-5);
 }
 .theme-toggle-thumb .icon-moon {
   display: block;
+  color: var(--accent);
 }
 [data-theme='light'] .theme-toggle-thumb .icon-sun {
   display: block;
