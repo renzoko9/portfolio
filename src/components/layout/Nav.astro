@@ -30,8 +30,12 @@ const links: Array<{ href: string; key: keyof Dictionary }> = [
     </div>
 
     <div class="nav-controls">
-      <LangToggle lang={lang} label={t.toggle_lang_label} />
-      <ThemeToggle label={t.toggle_theme_label} />
+      <div class="nav-control-block">
+        <LangToggle lang={lang} label={t.toggle_lang_label} />
+      </div>
+      <div class="nav-control-block">
+        <ThemeToggle label={t.toggle_theme_label} />
+      </div>
     </div>
   </nav>
 </header>

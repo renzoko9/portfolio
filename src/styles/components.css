@@ -100,11 +100,19 @@
   order: 3;
   margin-left: auto;
   display: flex;
-  gap: var(--space-3);
-  align-items: center;
-  padding: var(--space-4) var(--space-6);
+  align-items: stretch;
   border-left: 1px solid var(--border-hairline);
   border-right: 1px solid var(--border-hairline);
+}
+
+.nav-control-block {
+  display: flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+}
+
+.nav-control-block + .nav-control-block {
+  border-left: 1px solid var(--border-hairline);
 }
 
 @media (max-width: 640px) {
