@@ -1,5 +1,5 @@
 ---
-import { otherLang, type Lang } from '../../i18n/languages';
+import type { Lang } from '../../i18n/languages';
 import FlagIcon from './FlagIcon.astro';
 
 interface Props {
@@ -8,13 +8,12 @@ interface Props {
 }
 
 const { lang, label } = Astro.props;
-const target = otherLang(lang);
 ---
 
 <button type="button" class="lang-btn" id="lang-toggle" aria-label={label}>
-  <FlagIcon lang="es" class="flag-icon" hidden={target !== 'es'} />
-  <FlagIcon lang="en" class="flag-icon" hidden={target !== 'en'} />
-  <span id="lang-toggle-code">{target.toUpperCase()}</span>
+  <FlagIcon lang="es" class="flag-icon" hidden={lang !== 'es'} />
+  <FlagIcon lang="en" class="flag-icon" hidden={lang !== 'en'} />
+  <span id="lang-toggle-code">{lang.toUpperCase()}</span>
 </button>
 
 <script>
@@ -48,16 +47,14 @@ const target = otherLang(lang);
     }
 
     document.getElementById('theme-toggle')?.setAttribute('aria-label', dict.toggle_theme_label);
-
-    const target = otherLang(lang);
     document.getElementById('lang-toggle')?.setAttribute('aria-label', dict.toggle_lang_label);
 
     document.querySelectorAll<HTMLElement>('[data-lang-flag]').forEach((el) => {
-      el.style.display = el.dataset.langFlag === target ? '' : 'none';
+      el.style.display = el.dataset.langFlag === lang ? '' : 'none';
     });
 
     const code = document.getElementById('lang-toggle-code');
-    if (code) code.textContent = target.toUpperCase();
+    if (code) code.textContent = lang.toUpperCase();
 
     localStorage.setItem(STORAGE_KEY, lang);
     currentLang = lang;
