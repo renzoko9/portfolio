@@ -2,9 +2,10 @@
 interface Props {
   variant: 'success' | 'info' | 'warning';
   label: string;
+  i18nKey?: string;
 }
 
-const { variant, label } = Astro.props;
+const { variant, label, i18nKey } = Astro.props;
 ---
 
-<span class={`badge badge--${variant}`}>{label}</span>
+<span class={`badge badge--${variant}`} data-i18n={i18nKey}>{label}</span>

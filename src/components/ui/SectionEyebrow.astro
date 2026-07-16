@@ -2,11 +2,12 @@
 interface Props {
   text: string;
   class?: string;
+  i18nKey?: string;
 }
 
-const { text, class: className = 'mb-3' } = Astro.props;
+const { text, class: className = 'mb-3', i18nKey } = Astro.props;
 ---
 
-<div class:list={['font-mono', 'text-12', 'tracking-widest', 'uppercase', 'text-accent', className]}>
+<div class:list={['font-mono', 'text-12', 'tracking-widest', 'uppercase', 'text-accent', className]} data-i18n={i18nKey}>
   {text}
 </div>

@@ -4,20 +4,21 @@ import type { Lang } from '../../i18n/languages';
 interface Props {
   lang: Lang;
   class?: string;
+  hidden?: boolean;
 }
 
-const { lang, class: className } = Astro.props;
+const { lang, class: className, hidden = false } = Astro.props;
 ---
 
 {lang === 'es' && (
-  <svg viewBox="0 0 20 14" class={className} aria-hidden="true">
+  <svg viewBox="0 0 20 14" class={className} data-lang-flag="es" style={hidden ? 'display:none' : undefined} aria-hidden="true">
     <rect width="20" height="14" fill="#AA151B" />
     <rect y="3.5" width="20" height="7" fill="#F1BF00" />
   </svg>
 )}
 
 {lang === 'en' && (
-  <svg viewBox="0 0 20 14" class={className} aria-hidden="true">
+  <svg viewBox="0 0 20 14" class={className} data-lang-flag="en" style={hidden ? 'display:none' : undefined} aria-hidden="true">
     <rect width="20" height="14" fill="#B22234" />
     <rect y="1.08" width="20" height="1.08" fill="#fff" />
     <rect y="3.23" width="20" height="1.08" fill="#fff" />

@@ -9,11 +9,66 @@ interface Props {
 
 const { lang, label } = Astro.props;
 const target = otherLang(lang);
-const href = target === 'es' ? '/' : '/en/';
-const hash = Astro.url.hash;
 ---
 
-<a href={`${href}${hash}`} class="lang-btn" aria-label={label}>
-  <FlagIcon lang={target} class="flag-icon" />
-  <span>{target.toUpperCase()}</span>
-</a>
+<button type="button" class="lang-btn" id="lang-toggle" aria-label={label}>
+  <FlagIcon lang="es" class="flag-icon" hidden={target !== 'es'} />
+  <FlagIcon lang="en" class="flag-icon" hidden={target !== 'en'} />
+  <span id="lang-toggle-code">{target.toUpperCase()}</span>
+</button>
+
+<script>
+  import { es } from '../../i18n/es';
+  import { en } from '../../i18n/en';
+  import { defaultLang, otherLang, type Lang } from '../../i18n/languages';
+  import type { Dictionary } from '../../i18n/utils';
+
+  const dictionaries: Record<Lang, Dictionary> = { es, en };
+  const STORAGE_KEY = 'portfolio-lang';
+
+  let currentLang: Lang = document.documentElement.lang === 'en' ? 'en' : defaultLang;
+
+  function applyLang(lang: Lang) {
+    const dict = dictionaries[lang];
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+      const key = el.dataset.i18n as keyof Dictionary | undefined;
+      if (key && key in dict) el.textContent = dict[key];
+    });
+
+    document.querySelector('meta[name="description"]')?.setAttribute('content', dict.hero_desc);
+
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    if (form) {
+      form.dataset.subjectPrefix = dict.cf_mail_subject_prefix;
+      form.dataset.bodyName = dict.cf_mail_body_name;
+      form.dataset.bodyEmail = dict.cf_mail_body_email;
+    }
+
+    document.getElementById('theme-toggle')?.setAttribute('aria-label', dict.toggle_theme_label);
+
+    const target = otherLang(lang);
+    document.getElementById('lang-toggle')?.setAttribute('aria-label', dict.toggle_lang_label);
+
+    document.querySelectorAll<HTMLElement>('[data-lang-flag]').forEach((el) => {
+      el.style.display = el.dataset.langFlag === target ? '' : 'none';
+    });
+
+    const code = document.getElementById('lang-toggle-code');
+    if (code) code.textContent = target.toUpperCase();
+
+    localStorage.setItem(STORAGE_KEY, lang);
+    currentLang = lang;
+  }
+
+  document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    applyLang(otherLang(currentLang));
+  });
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if ((stored === 'es' || stored === 'en') && stored !== currentLang) {
+    applyLang(stored);
+  }
+</script>

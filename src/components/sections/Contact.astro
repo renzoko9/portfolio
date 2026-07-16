@@ -14,9 +14,9 @@ const { t } = Astro.props;
 <section id="contact" class="section py-20">
   <div class="contact-grid">
     <div>
-      <SectionEyebrow text={t.contact_eyebrow} />
-      <h2 class="font-sans fw-bold text-4xl tracking-tight text-primary mb-4">{t.contact_title}</h2>
-      <p class="font-sans text-md text-secondary leading-relaxed max-w-sm mb-8">{t.contact_desc}</p>
+      <SectionEyebrow text={t.contact_eyebrow} i18nKey="contact_eyebrow" />
+      <h2 class="font-sans fw-bold text-4xl tracking-tight text-primary mb-4" data-i18n="contact_title">{t.contact_title}</h2>
+      <p class="font-sans text-md text-secondary leading-relaxed max-w-sm mb-8" data-i18n="contact_desc">{t.contact_desc}</p>
       <div class="flex gap-8 flex-wrap pt-6 border-t">
         {socialLinks.map((social) => (
           <a href={social.href} target="_blank" rel="noopener" class="social-link">
@@ -37,27 +37,27 @@ const { t } = Astro.props;
     >
       <div class="grid grid-cols-2 gap-4">
         <div class="form-field">
-          <label for="cf-name" class="form-label">{t.cf_name}</label>
+          <label for="cf-name" class="form-label" data-i18n="cf_name">{t.cf_name}</label>
           <input id="cf-name" name="name" type="text" required class="form-input" />
         </div>
         <div class="form-field">
-          <label for="cf-email" class="form-label">{t.cf_email}</label>
+          <label for="cf-email" class="form-label" data-i18n="cf_email">{t.cf_email}</label>
           <input id="cf-email" name="email" type="email" required class="form-input" />
         </div>
       </div>
       <div class="form-field">
-        <label for="cf-subject" class="form-label">{t.cf_subject}</label>
+        <label for="cf-subject" class="form-label" data-i18n="cf_subject">{t.cf_subject}</label>
         <input id="cf-subject" name="subject" type="text" class="form-input" />
       </div>
       <div class="form-field">
-        <label for="cf-msg" class="form-label">{t.cf_msg}</label>
+        <label for="cf-msg" class="form-label" data-i18n="cf_msg">{t.cf_msg}</label>
         <textarea id="cf-msg" name="message" rows="5" required class="form-textarea"></textarea>
       </div>
       <button type="submit" class="btn-primary self-start">
-        <span>{t.cf_send}</span>
+        <span data-i18n="cf_send">{t.cf_send}</span>
         <Icon name="arrow-right" size={16} />
       </button>
-      <span class="font-mono text-12 text-tertiary">{t.cf_hint}</span>
+      <span class="font-mono text-12 text-tertiary" data-i18n="cf_hint">{t.cf_hint}</span>
     </form>
   </div>
 </section>

@@ -25,7 +25,7 @@ const links: Array<{ href: string; key: keyof Dictionary }> = [
 
     <div class="nav-links">
       {links.map((link) => (
-        <a href={link.href} class="link-muted">{t[link.key]}</a>
+        <a href={link.href} class="link-muted" data-i18n={link.key}>{t[link.key]}</a>
       ))}
     </div>
 

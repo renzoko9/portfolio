@@ -11,13 +11,13 @@ const { t } = Astro.props;
 ---
 
 <section id="skills" class="section py-20">
-  <SectionEyebrow text={t.skills_eyebrow} />
-  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8">{t.skills_title}</h2>
+  <SectionEyebrow text={t.skills_eyebrow} i18nKey="skills_eyebrow" />
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8" data-i18n="skills_title">{t.skills_title}</h2>
 
   <div class="flex flex-col">
     {skillCategories.map((category) => (
       <div class="meta-row">
-        <div class="font-mono text-12 uppercase tracking-wide text-tertiary">{t[category.categoryKey]}</div>
+        <div class="font-mono text-12 uppercase tracking-wide text-tertiary" data-i18n={category.categoryKey}>{t[category.categoryKey]}</div>
         <div class="flex gap-5 flex-wrap font-sans text-md text-primary">
           {category.items.map((item) => <span>{item}</span>)}
         </div>

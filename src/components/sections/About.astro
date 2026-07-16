@@ -15,11 +15,11 @@ const tags = ['UX / UI', 'Producto', 'Software', 'IA'];
 <section id="about" class="section py-20">
   <div class="about-grid">
     <div>
-      <SectionEyebrow text={t.about_eyebrow} />
-      <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-xs">{t.about_title}</h2>
+      <SectionEyebrow text={t.about_eyebrow} i18nKey="about_eyebrow" />
+      <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-xs" data-i18n="about_title">{t.about_title}</h2>
     </div>
     <div>
-      <p class="font-sans text-md text-secondary leading-relaxed mb-6">{t.about_p1}</p>
+      <p class="font-sans text-md text-secondary leading-relaxed mb-6" data-i18n="about_p1">{t.about_p1}</p>
       <div class="flex gap-2 flex-wrap">
         {tags.map((tag) => <Tag label={tag} />)}
       </div>

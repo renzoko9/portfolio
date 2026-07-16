@@ -10,9 +10,9 @@ const { t } = Astro.props;
 ---
 
 <section class="hero">
-  <SectionEyebrow text={t.hero_eyebrow} class="mb-5" />
+  <SectionEyebrow text={t.hero_eyebrow} class="mb-5" i18nKey="hero_eyebrow" />
   <h1 class="hero-title">
     Renzo Chipana<span class="accent-square" aria-hidden="true"></span>
   </h1>
-  <p class="font-sans text-md text-secondary leading-relaxed max-w-xl mt-6">{t.hero_desc}</p>
+  <p class="font-sans text-md text-secondary leading-relaxed max-w-xl mt-6" data-i18n="hero_desc">{t.hero_desc}</p>
 </section>

@@ -15,8 +15,8 @@ const { t } = Astro.props;
 
 <section id="projects" class="section-frame pt-20">
   <div class="px-edge">
-    <SectionEyebrow text={t.proj_eyebrow} />
-    <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8">
+    <SectionEyebrow text={t.proj_eyebrow} i18nKey="proj_eyebrow" />
+    <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-8" data-i18n="proj_title">
       {t.proj_title}
     </h2>
   </div>
@@ -39,9 +39,10 @@ const { t } = Astro.props;
               <Badge
                 variant={projectStatusMeta[project.status].variant}
                 label={t[projectStatusMeta[project.status].labelKey]}
+                i18nKey={projectStatusMeta[project.status].labelKey}
               />
             </div>
-            <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4">
+            <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4" data-i18n={project.descKey}>
               {t[project.descKey]}
             </p>
             <div class="flex gap-2 flex-wrap">
