@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-07-16
+
+### Changed
+
+- Language toggle now switches instantly on the same page instead of navigating to a separate `/en/` route, with the choice persisted in `localStorage`.
+- Reworked the header's language/theme divider to align with the page's grid lines instead of floating between the two controls.
+- Colored the theme toggle's sun and moon icons instead of leaving them neutral gray.
+
+### Fixed
+
+- Language toggle now displays the currently active language instead of the one it would switch to.
+
 ## [1.0.0] - 2026-07-15
 
 ### Added
