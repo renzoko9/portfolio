@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-07-21
+
+### Added
+
+- A Gmail button in the contact section and footer for reaching out directly.
+
+### Changed
+
+- The contact address is no longer shipped as plain text, to protect it from spam-harvesting bots; it's decoded client-side only when the Gmail button is clicked.
+
 ## [1.2.0] - 2026-07-21
 
 ### Added
