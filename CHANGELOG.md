@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-21
+
+### Added
+
+- Sections now fade and slide into view as the page is scrolled, instead of appearing all at once.
+
 ## [1.1.0] - 2026-07-16
 
 ### Changed
