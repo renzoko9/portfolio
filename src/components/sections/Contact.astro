@@ -2,7 +2,8 @@
 import type { Dictionary } from '../../i18n/utils';
 import SectionEyebrow from '../ui/SectionEyebrow.astro';
 import Icon from '../ui/Icon.astro';
-import { socialLinks, contactEmail } from '../../data/social';
+import GmailButton from '../ui/GmailButton.astro';
+import { socialLinks, contactEmailEncoded } from '../../data/social';
 
 interface Props {
   t: Dictionary;
@@ -24,6 +25,7 @@ const { t } = Astro.props;
             {social.label}
           </a>
         ))}
+        <GmailButton class="social-link" iconSize={17} showLabel />
       </div>
     </div>
 
@@ -33,7 +35,7 @@ const { t } = Astro.props;
       data-subject-prefix={t.cf_mail_subject_prefix}
       data-body-name={t.cf_mail_body_name}
       data-body-email={t.cf_mail_body_email}
-      data-mail-to={contactEmail}
+      data-mail-to={contactEmailEncoded}
     >
       <div class="grid grid-cols-2 gap-4">
         <div class="form-field">
@@ -76,7 +78,8 @@ const { t } = Astro.props;
 
     const subject = subjectField || `${subjectPrefix}${name}`;
     const body = `${bodyName}: ${name}\n${bodyEmail}: ${email}\n\n${message}`;
+    const to = mailTo ? atob(mailTo) : '';
 
-    window.location.href = `mailto:${mailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 </script>

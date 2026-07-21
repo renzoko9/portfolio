@@ -12,4 +12,7 @@ export const socialLinks: SocialLink[] = [
   { id: 'x', label: 'X', href: 'https://x.com/renzoko9' },
 ];
 
-export const contactEmail = 'renzoch99@gmail.com';
+// base64-obfuscated so the address isn't sitting as plain text in the page
+// source or JS bundle for spam bots to scrape — decoded only client-side,
+// on click, by GmailButton.astro
+export const contactEmailEncoded = 'cmVuem9jaDk5QGdtYWlsLmNvbQ==';

@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+import { contactEmailEncoded } from '../../data/social';
+
+interface Props {
+  class: string;
+  iconSize?: number;
+  showLabel?: boolean;
+}
+
+const { class: className, iconSize = 17, showLabel = false } = Astro.props;
+---
+
+<button type="button" class={className} aria-label="Gmail" data-gmail-btn data-mail-to={contactEmailEncoded}>
+  <Icon name="gmail" size={iconSize} />
+  {showLabel && <span>Gmail</span>}
+</button>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-gmail-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const encoded = btn.dataset.mailTo;
+      if (!encoded) return;
+
+      const email = atob(encoded);
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`, '_blank', 'noopener');
+    });
+  });
+</script>

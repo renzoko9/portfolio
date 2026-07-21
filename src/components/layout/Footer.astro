@@ -1,6 +1,7 @@
 ---
 import type { Dictionary } from '../../i18n/utils';
 import Icon from '../ui/Icon.astro';
+import GmailButton from '../ui/GmailButton.astro';
 import { socialLinks } from '../../data/social';
 
 interface Props {
@@ -22,5 +23,6 @@ const { t } = Astro.props;
         <Icon name={social.id} size={20} />
       </a>
     ))}
+    <GmailButton class="icon-link" iconSize={20} />
   </div>
 </footer>
