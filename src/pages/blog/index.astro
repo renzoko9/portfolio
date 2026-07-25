@@ -37,8 +37,9 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
       <div>
         {posts.map((post) => (
           <a href={`/blog/${post.id}`} class="project-row">
-            <span class="font-mono text-13 text-tertiary">
-              {post.data.pubDate.toLocaleDateString('es-PE', { month: 'short', day: '2-digit' })}
+            <span class="font-mono text-13 text-tertiary flex flex-col">
+              <span>{post.data.pubDate.toLocaleDateString('es-PE', { day: '2-digit' })}</span>
+              <span>{post.data.pubDate.toLocaleDateString('es-PE', { month: 'short' }).replace('.', '')}</span>
             </span>
             <div>
               <h2 class="font-sans fw-bold text-2xl text-primary">{post.data.title}</h2>

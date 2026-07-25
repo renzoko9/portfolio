@@ -352,12 +352,6 @@
   padding: var(--space-10) 0;
   border-top: 1px solid var(--border-hairline);
 }
-/* when the spacer carries a link (e.g. "view all") instead of staying
-   empty, it needs the row's own horizontal inset */
-.project-row-spacer > a {
-  display: inline-block;
-  padding: 0 min(var(--edge), var(--space-10));
-}
 
 .icon-arrow {
   color: var(--text-tertiary);

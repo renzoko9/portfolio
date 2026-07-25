@@ -12,16 +12,16 @@ interface Props {
 const { lang, t } = Astro.props;
 
 const links: Array<{ href: string; key: keyof Dictionary }> = [
-  { href: '#about', key: 'nav_about' },
-  { href: '#experience', key: 'nav_exp' },
-  { href: '#projects', key: 'nav_projects' },
-  { href: '#contact', key: 'nav_contact' },
+  { href: '/#about', key: 'nav_about' },
+  { href: '/#experience', key: 'nav_exp' },
+  { href: '/#projects', key: 'nav_projects' },
+  { href: '/#contact', key: 'nav_contact' },
 ];
 ---
 
 <header class="nav-header">
   <nav class="nav">
-    <a href="#top" class="nav-logo">RC<span class="text-accent">.</span></a>
+    <a href="/#top" class="nav-logo">RC<span class="text-accent">.</span></a>
 
     <div class="nav-links">
       {links.map((link) => (
