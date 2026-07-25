@@ -352,6 +352,12 @@
   padding: var(--space-10) 0;
   border-top: 1px solid var(--border-hairline);
 }
+/* when the spacer carries a link (e.g. "view all") instead of staying
+   empty, it needs the row's own horizontal inset */
+.project-row-spacer > a {
+  display: inline-block;
+  padding: 0 min(var(--edge), var(--space-10));
+}
 
 .icon-arrow {
   color: var(--text-tertiary);
@@ -397,6 +403,119 @@
 [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* ============ blog article ============ */
+.article-shell {
+  max-width: var(--measure-xl);
+  margin: 0 auto;
+}
+
+.article-prose {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+.article-prose h2 {
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-4);
+}
+.article-prose h3 {
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+.article-prose p {
+  margin-bottom: var(--space-5);
+}
+.article-prose ul,
+.article-prose ol {
+  margin-bottom: var(--space-5);
+  padding-left: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.article-prose ul {
+  list-style: disc;
+}
+.article-prose ol {
+  list-style: decimal;
+}
+.article-prose li {
+  margin-left: var(--space-2);
+}
+.article-prose strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.article-prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-surface-raised);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+.article-prose pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-13);
+  /* Shiki (Astro's built-in markdown highlighter) sets background/color
+     as inline styles baked in at build time, which don't react to the
+     dark/light toggle — !important overrides them with our own tokens
+     instead of wiring up Shiki's separate dual-theme CSS variables. */
+  background: var(--bg-inset) !important;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: var(--space-5);
+  overflow-x: auto;
+  margin-bottom: var(--space-6);
+}
+.article-prose pre code {
+  background: none;
+  padding: 0;
+}
+.article-prose pre code,
+.article-prose pre span {
+  color: var(--text-secondary) !important;
+  background-color: transparent !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+}
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-6);
+  font-size: var(--text-14);
+}
+.article-prose th,
+.article-prose td {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.article-prose th {
+  font-family: var(--font-mono);
+  font-size: var(--text-11);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-tertiary);
+}
+.article-prose hr {
+  border: none;
+  border-top: 1px solid var(--border-hairline);
+  margin: var(--space-10) 0;
 }
 
 /* ============ form ============ */

@@ -1,20 +1,61 @@
 ---
+import { getCollection } from 'astro:content';
 import type { Dictionary } from '../../i18n/utils';
 import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import Tag from '../ui/Tag.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   t: Dictionary;
 }
 
 const { t } = Astro.props;
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latest = posts.slice(0, 3);
 ---
 
-<section id="writing" class="section py-20" data-reveal>
-  <SectionEyebrow text={t.writing_eyebrow} class="mb-3" i18nKey="writing_eyebrow" />
-  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-6" data-i18n="writing_title">{t.writing_title}</h2>
+<section id="writing" class="section-frame pt-20" data-reveal>
+  <div class="px-edge">
+    <SectionEyebrow text={t.writing_eyebrow} class="mb-3" i18nKey="writing_eyebrow" />
+    <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-6" data-i18n="writing_title">
+      {t.writing_title}
+    </h2>
 
-  <div class="meta-row items-center">
-    <span class="font-mono text-12 uppercase tracking-wide text-tertiary" data-i18n="writing_soon">{t.writing_soon}</span>
-    <p class="font-sans text-md text-secondary leading-relaxed max-w-lg" data-i18n="writing_desc">{t.writing_desc}</p>
+    {latest.length === 0 && (
+      <div class="meta-row items-center">
+        <span class="font-mono text-12 uppercase tracking-wide text-tertiary" data-i18n="writing_soon">{t.writing_soon}</span>
+        <p class="font-sans text-md text-secondary leading-relaxed max-w-lg" data-i18n="writing_desc">{t.writing_desc}</p>
+      </div>
+    )}
   </div>
+
+  {latest.length > 0 && (
+    <div>
+      {latest.map((post) => (
+        <a href={`/blog/${post.id}`} class="project-row">
+          <span class="font-mono text-13 text-tertiary">
+            {post.data.pubDate.toLocaleDateString('es-PE', { month: 'short', day: '2-digit' })}
+          </span>
+          <div>
+            <h3 class="font-sans fw-bold text-2xl text-primary">{post.data.title}</h3>
+            <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4">{post.data.description}</p>
+            <div class="flex gap-2 flex-wrap">
+              {post.data.tags.map((tag) => (
+                <Tag label={tag} />
+              ))}
+            </div>
+          </div>
+          <span class="icon-arrow">
+            <Icon name="arrow-up-right" size={20} />
+          </span>
+        </a>
+      ))}
+      <div class="project-row-spacer">
+        <a href="/blog" class="link-muted" data-i18n="writing_view_all">{t.writing_view_all}</a>
+      </div>
+    </div>
+  )}
 </section>

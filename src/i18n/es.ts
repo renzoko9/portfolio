@@ -35,6 +35,8 @@ export interface Dictionary {
   writing_title: string;
   writing_soon: string;
   writing_desc: string;
+  writing_view_all: string;
+  blog_back: string;
   contact_eyebrow: string;
   contact_title: string;
   contact_desc: string;
@@ -99,6 +101,8 @@ export const es: Dictionary = {
   writing_title: 'Escritos',
   writing_soon: 'próximamente',
   writing_desc: 'Pronto compartiré notas sobre frontend, arquitectura y producto. Por ahora, este espacio está en construcción.',
+  writing_view_all: 'Ver todos los escritos',
+  blog_back: '← volver',
 
   contact_eyebrow: '// contacto',
   contact_title: 'Hablemos',

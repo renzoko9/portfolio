@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/layout/Nav.astro';
+import Footer from '../../components/layout/Footer.astro';
+import SectionEyebrow from '../../components/ui/SectionEyebrow.astro';
+import Tag from '../../components/ui/Tag.astro';
+import Icon from '../../components/ui/Icon.astro';
+import { useTranslations } from '../../i18n/utils';
+import { defaultLang } from '../../i18n/languages';
+
+const lang = defaultLang;
+const t = useTranslations(lang);
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout lang={lang} title={`${t.writing_title} — Renzo Chipana`} description={t.writing_desc}>
+  <Nav lang={lang} t={t} />
+
+  <section class="section-frame pt-20 pb-16" data-reveal>
+    <div class="px-edge">
+      <SectionEyebrow text={t.writing_eyebrow} class="mb-3" />
+      <h1 class="font-sans fw-bold text-3xl tracking-tight text-primary mb-6">{t.writing_title}</h1>
+
+      {posts.length === 0 && (
+        <div class="meta-row items-center">
+          <span class="font-mono text-12 uppercase tracking-wide text-tertiary">{t.writing_soon}</span>
+          <p class="font-sans text-md text-secondary leading-relaxed max-w-lg">{t.writing_desc}</p>
+        </div>
+      )}
+    </div>
+
+    {posts.length > 0 && (
+      <div>
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="project-row">
+            <span class="font-mono text-13 text-tertiary">
+              {post.data.pubDate.toLocaleDateString('es-PE', { month: 'short', day: '2-digit' })}
+            </span>
+            <div>
+              <h2 class="font-sans fw-bold text-2xl text-primary">{post.data.title}</h2>
+              <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4">{post.data.description}</p>
+              <div class="flex gap-2 flex-wrap">
+                {post.data.tags.map((tag) => (
+                  <Tag label={tag} />
+                ))}
+              </div>
+            </div>
+            <span class="icon-arrow">
+              <Icon name="arrow-up-right" size={20} />
+            </span>
+          </a>
+        ))}
+        <div class="project-row-spacer" aria-hidden="true" />
+      </div>
+    )}
+  </section>
+
+  <Footer t={t} />
+</BaseLayout>

@@ -46,6 +46,8 @@ export const en: Dictionary = {
   writing_title: 'Writing',
   writing_soon: 'coming soon',
   writing_desc: "Soon I'll share notes on frontend, architecture, and product. For now, this space is under construction.",
+  writing_view_all: 'View all writing',
+  blog_back: '← back',
 
   contact_eyebrow: '// contact',
   contact_title: "Let's talk",
