@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-07-25
+
+### Fixed
+
+- The "RC." logo and the header's section links now always return to the homepage, instead of breaking when clicked from the blog pages.
+- The "View all writing" link now sits next to the "Writing" heading instead of being buried below the post list.
+- Post dates in the writing list are now formatted consistently as a stacked day/month (e.g. "24 jul") in both the homepage preview and the blog listing.
+
 ## [1.4.0] - 2026-07-23
 
 ### Changed
