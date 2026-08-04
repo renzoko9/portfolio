@@ -32,6 +32,8 @@ export const en: Dictionary = {
   proj1_desc: 'Ecommerce platform for Universidad Nacional Mayor de San Marcos, built on a microservices architecture.',
   proj2_desc: 'Mobile fintech app with integrated AI: an OpenAI-assisted chat built into the experience.',
   proj3_desc: 'An app to keep the books for small businesses and even street vendors.',
+  proj4_desc:
+    'Augmentative communication (AAC) app with pictograms for non-verbal autistic children, fully offline. 3rd place in "Build with Gemma", a hackathon organized by Google DeepMind and Kaggle with support from GDG Lima.',
   proj5_desc:
     "A Quipucamayoc platform that digitizes the medical records of the 30,000+ students served by UNMSM medical services.",
 

@@ -24,6 +24,7 @@ export interface Dictionary {
   proj1_desc: string;
   proj2_desc: string;
   proj3_desc: string;
+  proj4_desc: string;
   proj5_desc: string;
   skills_eyebrow: string;
   skills_title: string;
@@ -87,6 +88,8 @@ export const es: Dictionary = {
   proj1_desc: 'Ecommerce para la Universidad Nacional Mayor de San Marcos, con arquitectura de microservicios.',
   proj2_desc: 'App móvil fintech con IA integrada: un chat asistido por OpenAI dentro de la experiencia.',
   proj3_desc: 'App para llevar las cuentas de pequeños negocios e incluso trabajadores ambulantes.',
+  proj4_desc:
+    'Comunicador aumentativo (CAA) con pictogramas para niños autistas no verbales, 100% offline. 3er puesto en "Build with Gemma", hackathon organizada por Google DeepMind y Kaggle con el apoyo de GDG Lima.',
   proj5_desc:
     'Plataforma del sistema Quipucamayoc que digitaliza las historias clínicas de los más de 30 mil estudiantes atendidos en los servicios médicos de la UNMSM.',
 
