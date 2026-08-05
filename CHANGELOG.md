@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-08-05
+
+### Added
+
+- Rumi, an offline-first AAC app for non-verbal autistic children, as a new project entry — 3rd place in "Build with Gemma", a hackathon organized by Google DeepMind and Kaggle with support from GDG Lima.
+
 ## [1.4.1] - 2026-07-25
 
 ### Fixed
