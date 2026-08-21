@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-08-21
+
+### Added
+
+- Foolscap, a real-time collaborative writeup editor, as a new project entry.
+- Python, LLMs, AI Agents, and FastAPI to the skills list.
+- A "show more" toggle on the projects list: only the first four show by default, with the rest revealed on demand.
+
+### Changed
+
+- Foolscap now appears before Cuéntape in the projects list.
+
 ## [1.5.0] - 2026-08-05
 
 ### Added
