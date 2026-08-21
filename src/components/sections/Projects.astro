@@ -1,16 +1,18 @@
 ---
 import type { Dictionary } from "../../i18n/utils";
 import SectionEyebrow from "../ui/SectionEyebrow.astro";
-import Tag from "../ui/Tag.astro";
-import Badge from "../ui/Badge.astro";
-import Icon from "../ui/Icon.astro";
-import { projects, projectStatusMeta } from "../../data/projects";
+import ProjectRow from "../ui/ProjectRow.astro";
+import { projects } from "../../data/projects";
 
 interface Props {
   t: Dictionary;
 }
 
 const { t } = Astro.props;
+
+const VISIBLE_COUNT = 4;
+const visibleProjects = projects.slice(0, VISIBLE_COUNT);
+const hiddenProjects = projects.slice(VISIBLE_COUNT);
 ---
 
 <section id="projects" class="section-frame pt-20" data-reveal>
@@ -22,41 +24,54 @@ const { t } = Astro.props;
   </div>
 
   <div>
+    {visibleProjects.map((project) => <ProjectRow project={project} t={t} />)}
+
     {
-      projects.map((project) => (
-        <a
-          href={project.href}
-          class="project-row"
-          target={project.external ? "_blank" : undefined}
-          rel={project.external ? "noopener" : undefined}
-        >
-          <span class="font-mono text-13 text-tertiary">{project.index}</span>
-          <div>
-            <div class="flex items-center gap-3 flex-wrap">
-              <h3 class="font-sans fw-bold text-2xl text-primary">
-                {project.title}
-              </h3>
-              <Badge
-                variant={projectStatusMeta[project.status].variant}
-                label={t[projectStatusMeta[project.status].labelKey]}
-                i18nKey={projectStatusMeta[project.status].labelKey}
-              />
-            </div>
-            <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-3 mb-4" data-i18n={project.descKey}>
-              {t[project.descKey]}
-            </p>
-            <div class="flex gap-2 flex-wrap">
-              {project.tags.map((tag) => (
-                <Tag label={tag} />
-              ))}
-            </div>
-          </div>
-          <span class="icon-arrow">
-            <Icon name="arrow-up-right" size={20} />
-          </span>
-        </a>
-      ))
+      hiddenProjects.length > 0 && (
+        <div id="projects-more" hidden>
+          {hiddenProjects.map((project) => <ProjectRow project={project} t={t} />)}
+        </div>
+      )
     }
+
+    {
+      hiddenProjects.length > 0 && (
+        <div class="project-toggle-row">
+          <button type="button" id="projects-toggle" class="link-muted" data-i18n="proj_show_more">
+            {t.proj_show_more}
+          </button>
+        </div>
+      )
+    }
+
     <div class="project-row-spacer" aria-hidden="true" />
   </div>
 </section>
+
+<script>
+  import { es } from "../../i18n/es";
+  import { en } from "../../i18n/en";
+  import type { Dictionary } from "../../i18n/utils";
+
+  const dictionaries: Record<"es" | "en", Dictionary> = { es, en };
+
+  const toggle = document.getElementById("projects-toggle");
+  const more = document.getElementById("projects-more");
+
+  toggle?.addEventListener("click", () => {
+    if (!more) return;
+    const lang = document.documentElement.lang === "en" ? "en" : "es";
+    const dict = dictionaries[lang];
+    const isHidden = more.hasAttribute("hidden");
+
+    if (isHidden) {
+      more.removeAttribute("hidden");
+      toggle.textContent = dict.proj_show_less;
+      toggle.dataset.i18n = "proj_show_less";
+    } else {
+      more.setAttribute("hidden", "");
+      toggle.textContent = dict.proj_show_more;
+      toggle.dataset.i18n = "proj_show_more";
+    }
+  });
+</script>

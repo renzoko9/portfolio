@@ -10,6 +10,7 @@ export const skillCategories: SkillCategory[] = [
     categoryKey: "skills_cat_front",
     items: [
       "Angular",
+      "Next.js",
       "React Native",
       "Expo",
       "TypeScript",
@@ -24,10 +25,14 @@ export const skillCategories: SkillCategory[] = [
     items: [
       "NestJS",
       "PostgreSQL",
+      "Drizzle ORM",
       "Microservicios",
       "REST APIs",
       "Redis",
       "WebSockets",
+      "Portal (realtime)",
+      "Clerk",
+      "FastAPI",
     ],
   },
   {
@@ -36,6 +41,6 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     categoryKey: "skills_cat_ai",
-    items: ["OpenAI"],
+    items: ["Python", "OpenAI", "LLMs", "AI Agents"],
   },
 ];

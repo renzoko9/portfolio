@@ -26,6 +26,8 @@ export const en: Dictionary = {
 
   proj_eyebrow: '// selected work',
   proj_title: 'Selected work',
+  proj_show_more: 'Show more projects',
+  proj_show_less: 'Show less',
   status_live: 'live',
   status_deploying: 'deploying',
   status_dev: 'in progress',
@@ -36,6 +38,8 @@ export const en: Dictionary = {
     'Augmentative communication (AAC) app with pictograms for non-verbal autistic children, fully offline. 3rd place in "Build with Gemma", a hackathon organized by Google DeepMind and Kaggle with support from GDG Lima.',
   proj5_desc:
     "A Quipucamayoc platform that digitizes the medical records of the 30,000+ students served by UNMSM medical services.",
+  proj6_desc:
+    'Real-time collaborative writeup editor: 6-character room codes, live presence, per-block locking, and built-in chat.',
 
   skills_eyebrow: '// stack & tools',
   skills_title: 'What I build with',

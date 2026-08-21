@@ -18,6 +18,8 @@ export interface Dictionary {
   exp2_desc: string;
   proj_eyebrow: string;
   proj_title: string;
+  proj_show_more: string;
+  proj_show_less: string;
   status_live: string;
   status_deploying: string;
   status_dev: string;
@@ -26,6 +28,7 @@ export interface Dictionary {
   proj3_desc: string;
   proj4_desc: string;
   proj5_desc: string;
+  proj6_desc: string;
   skills_eyebrow: string;
   skills_title: string;
   skills_cat_front: string;
@@ -82,6 +85,8 @@ export const es: Dictionary = {
 
   proj_eyebrow: '// proyectos seleccionados',
   proj_title: 'Proyectos',
+  proj_show_more: 'Ver más proyectos',
+  proj_show_less: 'Ver menos',
   status_live: 'en producción',
   status_deploying: 'en despliegue',
   status_dev: 'en desarrollo',
@@ -92,6 +97,8 @@ export const es: Dictionary = {
     'Comunicador aumentativo (CAA) con pictogramas para niños autistas no verbales, 100% offline. 3er puesto en "Build with Gemma", hackathon organizada por Google DeepMind y Kaggle con el apoyo de GDG Lima.',
   proj5_desc:
     'Plataforma del sistema Quipucamayoc que digitaliza las historias clínicas de los más de 30 mil estudiantes atendidos en los servicios médicos de la UNMSM.',
+  proj6_desc:
+    'Editor colaborativo de writeups en tiempo real: salas por código de 6 caracteres, presencia en vivo, bloqueo de bloque por usuario y chat integrado.',
 
   skills_eyebrow: '// stack & herramientas',
   skills_title: 'Con qué construyo',

@@ -353,6 +353,20 @@
   border-top: 1px solid var(--border-hairline);
 }
 
+.project-toggle-row {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--border-hairline);
+}
+.project-toggle-row .link-muted {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
 .icon-arrow {
   color: var(--text-tertiary);
   margin-top: 6px;
