@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiciosNav from './servicios/ServiciosNav.astro';
+import ServiciosHero from './servicios/ServiciosHero.astro';
+import ServiciosProblem from './servicios/ServiciosProblem.astro';
+import ServiciosOffer from './servicios/ServiciosOffer.astro';
+import ServiciosProcess from './servicios/ServiciosProcess.astro';
+import ServiciosProof from './servicios/ServiciosProof.astro';
+import ServiciosContact from './servicios/ServiciosContact.astro';
+import ServiciosFooter from './servicios/ServiciosFooter.astro';
+
+const title = 'Renzo Chipana — Tecnología para tu negocio';
+const description =
+  'Ayudo a negocios locales a vender más y ahorrar tiempo con páginas web, sistemas simples y automatizaciones a medida.';
+---
+
+<BaseLayout lang="es" title={title} description={description}>
+  <ServiciosNav />
+  <ServiciosHero />
+  <ServiciosProblem />
+  <ServiciosOffer />
+  <ServiciosProcess />
+  <ServiciosProof />
+  <ServiciosContact />
+  <ServiciosFooter />
+</BaseLayout>

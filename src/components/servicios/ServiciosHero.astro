@@ -1,0 +1,32 @@
+---
+import SectionEyebrow from "../ui/SectionEyebrow.astro";
+import Icon from "../ui/Icon.astro";
+import { CTA_URL, CTA_LABEL } from "../../data/servicios";
+---
+
+<section id="top" class="hero">
+  <SectionEyebrow text="TECNOLOGÍA PARA TU NEGOCIO" class="mb-5" />
+  <h1 class="hero-title max-w-lg">
+    Vende más y recupera tu tiempo, sin complicarte con la tecnología.
+  </h1>
+  <p
+    class="font-sans text-md text-secondary leading-relaxed max-w-xl mt-6 mb-6"
+  >
+    Ayudo a negocios locales a atraer más clientes y automatizar tareas
+    repetitivas con páginas web, sistemas simples y automatizaciones a medida.
+  </p>
+  <div class="flex items-center gap-4 flex-wrap mt-8">
+    <a
+      href={CTA_URL}
+      target="_blank"
+      rel="noopener"
+      class="btn-primary no-underline"
+    >
+      <Icon name="whatsapp" size={16} />
+      <span>{CTA_LABEL}</span>
+    </a>
+    <span class="font-mono text-12 text-tertiary"
+      >Sin costo, sin compromiso.</span
+    >
+  </div>
+</section>

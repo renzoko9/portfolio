@@ -1,0 +1,116 @@
+---
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import Badge from '../ui/Badge.astro';
+import Icon from '../ui/Icon.astro';
+import { proofCases } from '../../data/servicios';
+---
+
+<section class="section py-20" data-reveal>
+  <SectionEyebrow text="RESULTADOS" class="mb-3" />
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-md mb-10">
+    Proyectos reales, resultados reales.
+  </h2>
+
+  <div class="svc-proof-grid">
+    {proofCases.map((item) => {
+      const Tag = item.href ? 'a' : 'div';
+      return (
+        <Tag
+          class="svc-proof-card"
+          href={item.href}
+          target={item.href ? '_blank' : undefined}
+          rel={item.href ? 'noopener' : undefined}
+        >
+          <div>
+            <Badge variant={item.tagVariant} label={item.tag} />
+            <h3 class="font-sans fw-bold text-xl text-primary mt-4">{item.title}</h3>
+            <p class="font-sans text-base text-secondary leading-relaxed mt-2">{item.desc}</p>
+          </div>
+
+          <div class="svc-proof-footer">
+            {item.quote && (
+              <blockquote class="svc-quote">
+                <p class="font-sans text-base text-primary leading-snug">"{item.quote.text}"</p>
+                <footer class="font-mono text-11 text-tertiary uppercase tracking-wide mt-3">
+                  {item.quote.name} · {item.quote.role}
+                </footer>
+              </blockquote>
+            )}
+            {item.note && (
+              <p class="svc-note font-sans text-base text-secondary leading-snug">{item.note}</p>
+            )}
+            {item.href && (
+              <span class="svc-proof-link">
+                Ver la nota de prensa
+                <Icon name="arrow-up-right" size={14} />
+              </span>
+            )}
+          </div>
+        </Tag>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .svc-proof-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: stretch;
+  }
+  @media (min-width: 760px) {
+    .svc-proof-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .svc-proof-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+    height: 100%;
+    padding: var(--space-6);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--duration-fast) var(--ease-standard), background var(--duration-fast) var(--ease-standard);
+  }
+  a.svc-proof-card:hover {
+    border-color: var(--border-strong);
+    background: var(--bg-surface-raised);
+  }
+
+  .svc-proof-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .svc-quote {
+    margin: 0;
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--accent);
+  }
+
+  .svc-note {
+    margin: 0;
+    padding-left: var(--space-4);
+    border-left: 2px dashed var(--border-strong);
+  }
+
+  .svc-proof-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: var(--text-12);
+    color: var(--text-tertiary);
+  }
+  a.svc-proof-card:hover .svc-proof-link {
+    color: var(--accent);
+  }
+</style>

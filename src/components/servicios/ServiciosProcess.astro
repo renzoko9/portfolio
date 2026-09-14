@@ -1,0 +1,54 @@
+---
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import { processSteps } from '../../data/servicios';
+---
+
+<section class="section py-20" data-reveal>
+  <SectionEyebrow text="CÓMO TRABAJAMOS" class="mb-3" />
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-md mb-6">
+    Un proceso simple, sin sorpresas.
+  </h2>
+
+  <div class="svc-steps">
+    {processSteps.map((step) => (
+      <div class="svc-step">
+        <span class="svc-step-number">{step.number}</span>
+        <h3 class="font-sans fw-bold text-xl text-primary mt-4">{step.title}</h3>
+        <p class="font-sans text-base text-secondary leading-relaxed mt-2">{step.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .svc-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  @media (min-width: 760px) {
+    .svc-steps {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-10);
+    }
+  }
+  .svc-step {
+    padding: var(--space-6);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+  }
+  .svc-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: var(--text-14);
+    color: var(--text-on-accent);
+    background: var(--accent);
+    border-radius: var(--radius-full);
+  }
+</style>

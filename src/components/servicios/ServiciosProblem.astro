@@ -1,0 +1,41 @@
+---
+// {{ AJUSTAR SEGÚN NICHO }}: cuando definas un sector concreto, reescribe estos
+// dolores en el lenguaje exacto de ese negocio (ej. restaurantes, talleres, clínicas).
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import { painPoints } from '../../data/servicios';
+---
+
+<section class="section py-20" data-reveal>
+  <div class="about-grid">
+    <div>
+      <SectionEyebrow text="EL PROBLEMA" />
+      <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-xs">
+        ¿Te suena alguno de estos problemas?
+      </h2>
+    </div>
+    <ul class="flex flex-col gap-5">
+      {painPoints.map((point) => (
+        <li class="svc-pain-item">
+          <span class="svc-pain-mark" aria-hidden="true"></span>
+          <p class="font-sans text-md text-secondary leading-relaxed">{point}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .svc-pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .svc-pain-mark {
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    margin-top: 8px;
+    border-radius: var(--radius-full);
+    background: var(--coral-5);
+  }
+</style>

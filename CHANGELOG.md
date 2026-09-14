@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A `/servicios` page: a commercial landing aimed at local business owners, separate from the main portfolio and not linked from the main nav yet.
+
 ## [1.6.0] - 2026-08-21
 
 ### Added

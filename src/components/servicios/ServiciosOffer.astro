@@ -1,0 +1,46 @@
+---
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import { offers } from '../../data/servicios';
+---
+
+<section class="section-frame" data-reveal>
+  <div class="svc-offer-head section py-12">
+    <SectionEyebrow text="QUÉ HAGO POR TI" />
+    <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-md">
+      Soluciones pensadas para tu negocio, no para impresionar a otros programadores.
+    </h2>
+  </div>
+
+  {offers.map((offer) => (
+    <div class="svc-offer-row">
+      <span class="font-mono text-13 text-tertiary">{offer.index}</span>
+      <div>
+        <h3 class="font-sans fw-bold text-xl text-primary">{offer.title}</h3>
+        <p class="font-sans text-md text-secondary leading-relaxed max-w-lg mt-2">
+          {offer.desc}
+        </p>
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+  .svc-offer-head {
+    border-top: none;
+  }
+  .svc-offer-row {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: var(--space-4);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-8) min(var(--edge), var(--space-10));
+    border-top: 1px solid var(--border-hairline);
+  }
+  @media (min-width: 640px) {
+    .svc-offer-row {
+      grid-template-columns: 52px 1fr;
+      gap: var(--space-6);
+    }
+  }
+</style>
