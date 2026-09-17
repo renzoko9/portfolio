@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - A `/servicios` page: a commercial landing aimed at local business owners, separate from the main portfolio and not linked from the main nav yet.
+- Trust-point pills, a stats block, and an FAQ accordion on `/servicios`, to build credibility without inflating numbers or copying agency-speak.
 
 ## [1.6.0] - 2026-08-21
 

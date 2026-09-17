@@ -10,6 +10,52 @@ const WHATSAPP_MESSAGE = 'Hola Renzo, vi tu página de servicios y quiero agenda
 export const CTA_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const CTA_LABEL = 'Agenda una llamada gratis de 20 min';
 
+// Ventajas reales de trabajar directo conmigo (no con una agencia con rotación
+// de personal). Se muestran como pills debajo del CTA del hero.
+export const trustPoints: string[] = [
+  'Trabajas directo conmigo, sin intermediarios',
+  'Precio cerrado desde el primer día',
+  'Código que cualquier otro dev puede mantener después',
+];
+
+export interface Stat {
+  value: string;
+  label: string;
+}
+
+// Cifras verificables, no infladas: la de usuarios sale de las mismas notas
+// de prensa citadas en "Resultados" (San Market + Medibyte, UNMSM).
+export const stats: Stat[] = [
+  { value: '+30,000', label: 'usuarios reales en sistemas que construí' },
+  { value: '3+', label: 'años programando profesionalmente' },
+  { value: 'UNMSM', label: 'universidad que confió en mi trabajo' },
+];
+
+export interface Faq {
+  question: string;
+  answer: string;
+}
+
+export const faqs: Faq[] = [
+  {
+    question: '¿Cuánto cuesta?',
+    answer:
+      'Depende del proyecto, por eso la primera llamada es gratis: te doy un precio cerrado antes de empezar, sin sorpresas después.',
+  },
+  {
+    question: '¿Tengo que saber de tecnología?',
+    answer: 'No. Yo me encargo de todo lo técnico y te explico cada paso en tu idioma, sin jerga.',
+  },
+  {
+    question: '¿Qué pasa si no me gusta el resultado?',
+    answer: 'Hasta 3 veces puedo reformular la propuesta y cambiar el resultado, para que puedas elegir.',
+  },
+  {
+    question: '¿Cuánto se demora?',
+    answer: 'Depende del tipo de proyecto; todo eso se coordina en la primera llamada.',
+  },
+];
+
 export const painPoints: string[] = [
   'Pierdes clientes porque no respondes a tiempo, o ni siquiera te encuentran en internet.',
   'Pasas horas haciendo a mano tareas que podrías automatizar: cotizaciones, agendar citas, llevar tus cuentas.',

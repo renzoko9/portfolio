@@ -1,0 +1,59 @@
+---
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+import Icon from '../ui/Icon.astro';
+import { faqs } from '../../data/servicios';
+---
+
+<section class="section py-20" data-reveal>
+  <SectionEyebrow text="PREGUNTAS FRECUENTES" class="mb-3" />
+  <h2 class="font-sans fw-bold text-3xl tracking-tight text-primary max-w-md mb-10">
+    Dudas antes de escribirme
+  </h2>
+
+  <div class="svc-faq-list">
+    {faqs.map((faq) => (
+      <details class="svc-faq-item">
+        <summary class="svc-faq-question">
+          <span class="font-sans fw-semibold text-md text-primary">{faq.question}</span>
+          <Icon name="chevron-down" size={18} class="svc-faq-chevron" />
+        </summary>
+        <p class="font-sans text-base text-secondary leading-relaxed mt-3">{faq.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .svc-faq-list {
+    max-width: var(--measure-xl);
+  }
+
+  .svc-faq-item {
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--border-hairline);
+  }
+  .svc-faq-item:last-child {
+    border-bottom: 1px solid var(--border-hairline);
+  }
+
+  .svc-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    cursor: pointer;
+    list-style: none;
+  }
+  .svc-faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .svc-faq-chevron {
+    flex-shrink: 0;
+    color: var(--text-tertiary);
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+  .svc-faq-item[open] .svc-faq-chevron {
+    transform: rotate(180deg);
+  }
+</style>

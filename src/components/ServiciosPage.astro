@@ -2,10 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiciosNav from './servicios/ServiciosNav.astro';
 import ServiciosHero from './servicios/ServiciosHero.astro';
+import ServiciosStats from './servicios/ServiciosStats.astro';
 import ServiciosProblem from './servicios/ServiciosProblem.astro';
 import ServiciosOffer from './servicios/ServiciosOffer.astro';
 import ServiciosProcess from './servicios/ServiciosProcess.astro';
 import ServiciosProof from './servicios/ServiciosProof.astro';
+import ServiciosFaq from './servicios/ServiciosFaq.astro';
 import ServiciosContact from './servicios/ServiciosContact.astro';
 import ServiciosFooter from './servicios/ServiciosFooter.astro';
 
@@ -17,10 +19,12 @@ const description =
 <BaseLayout lang="es" title={title} description={description}>
   <ServiciosNav />
   <ServiciosHero />
+  <ServiciosStats />
   <ServiciosProblem />
   <ServiciosOffer />
   <ServiciosProcess />
   <ServiciosProof />
+  <ServiciosFaq />
   <ServiciosContact />
   <ServiciosFooter />
 </BaseLayout>

@@ -8,7 +8,9 @@ export type IconName =
   | 'arrow-up-right'
   | 'sun'
   | 'moon'
-  | 'arrow-right';
+  | 'arrow-right'
+  | 'check'
+  | 'chevron-down';
 
 interface Props {
   name: IconName;
@@ -43,6 +45,18 @@ const { name, size = 20, class: className } = Astro.props;
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width={size} height={size} class={className}>
     <rect x="2" y="4" width="20" height="16" rx="2" />
     <path d="m2 6 10 7 10-7" />
+  </svg>
+)}
+
+{name === 'check' && (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width={size} height={size} class={className}>
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+)}
+
+{name === 'chevron-down' && (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width={size} height={size} class={className}>
+    <path d="m6 9 6 6 6-6" />
   </svg>
 )}
 

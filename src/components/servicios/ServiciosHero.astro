@@ -1,7 +1,7 @@
 ---
 import SectionEyebrow from "../ui/SectionEyebrow.astro";
 import Icon from "../ui/Icon.astro";
-import { CTA_URL, CTA_LABEL } from "../../data/servicios";
+import { CTA_URL, CTA_LABEL, trustPoints } from "../../data/servicios";
 ---
 
 <section id="top" class="hero">
@@ -29,4 +29,39 @@ import { CTA_URL, CTA_LABEL } from "../../data/servicios";
       >Sin costo, sin compromiso.</span
     >
   </div>
+
+  <ul class="svc-trust-strip">
+    {trustPoints.map((point) => (
+      <li>
+        <Icon name="check" size={14} />
+        <span>{point}</span>
+      </li>
+    ))}
+  </ul>
 </section>
+
+<style>
+  .svc-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+    padding: 0;
+  }
+  .svc-trust-strip li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-12);
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-4);
+  }
+  .svc-trust-strip :global(svg) {
+    color: var(--mint-5);
+    flex-shrink: 0;
+  }
+</style>

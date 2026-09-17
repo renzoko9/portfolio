@@ -1,0 +1,58 @@
+---
+import { stats } from '../../data/servicios';
+---
+
+<section class="section-frame" data-reveal>
+  <div class="svc-stats">
+    {stats.map((stat) => (
+      <div class="svc-stat">
+        <span class="svc-stat-value">{stat.value}</span>
+        <span class="svc-stat-label">{stat.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .svc-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .svc-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .svc-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-10) var(--edge);
+    border-top: 1px solid var(--border-hairline);
+  }
+  @media (min-width: 640px) {
+    .svc-stat {
+      border-top: none;
+      border-left: 1px solid var(--border-hairline);
+    }
+    .svc-stat:first-child {
+      border-left: none;
+    }
+  }
+
+  .svc-stat-value {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: var(--text-3xl);
+    letter-spacing: var(--tracking-tight);
+    color: var(--accent);
+  }
+  .svc-stat-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-13);
+    color: var(--text-tertiary);
+  }
+</style>
