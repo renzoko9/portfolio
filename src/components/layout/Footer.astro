@@ -3,6 +3,7 @@ import type { Dictionary } from '../../i18n/utils';
 import Icon from '../ui/Icon.astro';
 import GmailButton from '../ui/GmailButton.astro';
 import { socialLinks } from '../../data/social';
+import pkg from '../../../package.json';
 
 interface Props {
   t: Dictionary;
@@ -15,6 +16,7 @@ const { t } = Astro.props;
   <div class="flex flex-col gap-1">
     <span class="font-mono fw-bold text-14 tracking-widest text-primary">RC<span class="text-accent">.</span></span>
     <span class="font-mono text-12 text-tertiary" data-i18n="footer_built">{t.footer_built}</span>
+    <span class="font-mono text-12 text-tertiary" title="Versión desplegada">v{pkg.version}</span>
   </div>
 
   <a href="/servicios" class="link-muted" data-i18n="footer_services_cta">{t.footer_services_cta}</a>
