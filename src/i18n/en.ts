@@ -69,6 +69,7 @@ export const en: Dictionary = {
   cf_mail_body_email: 'Email',
 
   footer_built: 'Designed and built by Renzo Chipana · 2026',
+  footer_services_cta: 'Have a business? Check out my services →',
 
   toggle_lang_label: 'Switch language',
   toggle_theme_label: 'Switch theme',

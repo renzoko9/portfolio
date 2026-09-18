@@ -11,12 +11,33 @@ import ServiciosFaq from './servicios/ServiciosFaq.astro';
 import ServiciosContact from './servicios/ServiciosContact.astro';
 import ServiciosFooter from './servicios/ServiciosFooter.astro';
 
-const title = 'Renzo Chipana — Tecnología para tu negocio';
+const title = 'Renzo Chipana — Desarrollo web y automatización para tu negocio';
 const description =
-  'Ayudo a negocios locales a vender más y ahorrar tiempo con páginas web, sistemas simples y automatizaciones a medida.';
+  'Desarrollo páginas web, sistemas simples y automatizaciones para negocios locales y pymes en Perú. Agenda una llamada gratis de 20 minutos.';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Desarrollo web y automatización de procesos para negocios',
+  description,
+  provider: {
+    '@type': 'Person',
+    name: 'Renzo Chipana',
+    url: 'https://renzochip.dev',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Perú',
+  },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Negocios locales y pymes',
+  },
+};
 ---
 
-<BaseLayout lang="es" title={title} description={description}>
+<BaseLayout lang="es" title={title} description={description} image="/og-servicios.png">
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)} />
   <ServiciosNav />
   <ServiciosHero />
   <ServiciosStats />

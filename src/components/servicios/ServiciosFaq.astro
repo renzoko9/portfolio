@@ -2,7 +2,22 @@
 import SectionEyebrow from '../ui/SectionEyebrow.astro';
 import Icon from '../ui/Icon.astro';
 import { faqs } from '../../data/servicios';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
 ---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 
 <section class="section py-20" data-reveal>
   <SectionEyebrow text="PREGUNTAS FRECUENTES" class="mb-3" />

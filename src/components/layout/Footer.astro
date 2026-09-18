@@ -17,6 +17,8 @@ const { t } = Astro.props;
     <span class="font-mono text-12 text-tertiary" data-i18n="footer_built">{t.footer_built}</span>
   </div>
 
+  <a href="/servicios" class="link-muted" data-i18n="footer_services_cta">{t.footer_services_cta}</a>
+
   <div class="flex gap-4">
     {socialLinks.map((social) => (
       <a href={social.href} aria-label={social.label} class="icon-link" target="_blank" rel="noopener">

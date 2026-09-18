@@ -54,6 +54,7 @@ export interface Dictionary {
   cf_mail_body_name: string;
   cf_mail_body_email: string;
   footer_built: string;
+  footer_services_cta: string;
   toggle_lang_label: string;
   toggle_theme_label: string;
 }
@@ -128,6 +129,7 @@ export const es: Dictionary = {
   cf_mail_body_email: 'Correo',
 
   footer_built: 'Diseñado y construido por Renzo Chipana · 2026',
+  footer_services_cta: '¿Tienes un negocio? Conoce mis servicios →',
 
   toggle_lang_label: 'Cambiar idioma',
   toggle_theme_label: 'Cambiar tema',

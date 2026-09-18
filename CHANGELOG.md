@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - A `/servicios` page: a commercial landing aimed at local business owners, separate from the main portfolio and not linked from the main nav yet.
 - Trust-point pills, a stats block, and an FAQ accordion on `/servicios`, to build credibility without inflating numbers or copying agency-speak.
+- SEO for `/servicios`: sitemap, robots.txt, canonical URLs, Open Graph/Twitter tags, a generated 1200x630 social image, and `Service`/`FAQPage` JSON-LD.
+- A discreet footer link from the home page to `/servicios`, so it's reachable via internal links instead of only the sitemap.
 
 ## [1.6.0] - 2026-08-21
 
