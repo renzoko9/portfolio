@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.1] - 2026-09-25
+
+### Fixed
+
+- `astro.config`'s `site`, the sitemap, `robots.txt`, and the `Service` schema pointed to `renzochip.dev`, which 308-redirects to the real production domain `www.renzochip.dev` in Vercel -- Search Console was reporting every URL as "Page with redirect" or "Discovered - currently not indexed" as a result. All now point to `www.renzochip.dev`.
+- The footer link to `/servicios` (and its self-referencing nav logo link) omitted the trailing slash, adding an avoidable redirect hop that Search Console flagged as a redirect error.
+
 ## [1.7.0] - 2026-09-17
 
 ### Added
